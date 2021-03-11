@@ -1,28 +1,25 @@
 import React from 'react';
 
-// jsx = HTML + JavaScript
-// component 의 첫 글자는 대문자
-// fav 라는 Food component property 의 value 들 출력
-function Food({fav}) {
-  return <h1>I love {fav}</h1>;
+function Food({name}) {
+  return <h1>I love {name}</h1>;
 }
+
+const foodILike = [
+  {
+    name: "kimchi"
+  },
+  {
+    name: "samgyeopsal"
+  },
+  {
+    name: "bibimbap"
+  }
+];
 
 function App() {
   return (
     <div>
-      <h1>Hello React</h1>
-      <Food 
-            fav="kimchi" 
-      />
-      <Food 
-            fav="ramen" 
-      />
-      <Food 
-            fav="samgiopsal" 
-      />
-      <Food 
-            fav="chukumi" 
-      />
+      {foodILike.map(dish => <Food name={dish.name}></Food>)}
     </div>
   );
 }
